@@ -1,15 +1,16 @@
+
+
 <?php
 $login = !empty($_GET['login'])?$_GET['login']:'Логин не передан';
 $password = !empty($_GET['password'])?$_GET['password']:'Пароль не передан';
 
-function isAuthorized () {
-	if ($_GET['login'] == 'admin' && $_GET['password'] == '12345') {
-		return true;
+if ($login === 'admin' && $password === '12345') {
+	$isAuthorized = true;
 	}
 	else  {
-		return false;
+	 $isAuthorized = false;
 	}
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ function isAuthorized () {
 	<title>Page result authorization</title>
 </head>
 <body>
-	<?=isAuthorized()?'Авторизация прошла успешно':'Ошибка при авторизации';
+	<?= $isAuthorized ? "Авторизация прошла успешно" : "Ошибка авторизации";
 	 ?>
 </body>
 </html>
