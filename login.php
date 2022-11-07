@@ -4,12 +4,16 @@
 $login = !empty($_GET['login'])?$_GET['login']:'Логин не передан';
 $password = !empty($_GET['password'])?$_GET['password']:'Пароль не передан';
 
-if ($login === 'admin' && $password === '12345') {
-	$isAuthorized = true;
+
+if ($login !== 'admin') {
+	$isAuthorized = 'Пользователь не найден';
 	}
-	else  {
-	 $isAuthorized = false;
+elseif ($login === 'admin' && $password !== '12345') {
+	$isAuthorized = 'Пароль неверный';
 	}
+else {
+	 $isAuthorized = "Авторизация прошла успешно";
+	 }
 
 ?>
 
@@ -21,7 +25,7 @@ if ($login === 'admin' && $password === '12345') {
 	<title>Page result authorization</title>
 </head>
 <body>
-	<?= $isAuthorized ? "Авторизация прошла успешно" : "Ошибка авторизации";
+	<?= $isAuthorized;
 	 ?>
 </body>
 </html>
