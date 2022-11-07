@@ -20,7 +20,7 @@ function isAuthorized () {
 	<title>Page result authorization</title>
 </head>
 <body>
-	<? isAuthorized()?'Авторизация прошла успешно':'Ошибка при авторизации';
+	<?=isAuthorized()?'Авторизация прошла успешно':'Ошибка при авторизации';
 	 ?>
 </body>
 </html>
